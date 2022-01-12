@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { useNavigation } from "@react-navigation/native"
 import AsyncStorage from "@react-native-community/async-storage"
 import { UserContext } from '../../contexts/UserContext'
@@ -65,7 +65,7 @@ export default () => {
   // direcionamos o usuario pra tela SingIn para fazer o login
   const handleMessageButtonClick = () => {
     navigation.reset({
-      routes: [{ name: 'SignUp' }]
+      routes: [{ name: 'SignIn' }]
     })
   }
 
