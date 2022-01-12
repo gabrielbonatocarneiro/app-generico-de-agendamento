@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage'
+
 const BASE_API = 'https://api.b7web.com.br/devbarber/api'
 
 // name: Gabriel Bonato
@@ -47,4 +49,13 @@ export default {
 
     return json
   },
+  getBarbers: async (latitude = null, longitude = null, address = null) => {
+    const token = await AsyncStorage.getItem('token')
+
+    const req = await fetch(`${BASE_API}/barbers?token=${token}&lat=${latitude}&lng=${longitude}&address=${address}`)
+
+    const json = await req.json()
+
+    return json
+  }
 }
